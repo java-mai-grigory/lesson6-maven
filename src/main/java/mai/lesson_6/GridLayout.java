@@ -1,7 +1,5 @@
 package mai.lesson_6;
 
-import java.awt.GridLayout;
-
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;

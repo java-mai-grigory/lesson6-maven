@@ -34,6 +34,7 @@ public class Calculator {
 	JButton buttonMinus;
 	JButton buttonMult;
 	JButton buttonDiv;
+	JButton buttonClear;
 	JPanel p1;
 	JTextField empty1;
 	JTextField empty2;
@@ -72,7 +73,8 @@ public class Calculator {
 		buttonDiv=new JButton("/");
 		buttonPoint = new JButton(".");
 		buttonEqual=new JButton("=");
-
+		buttonClear=new JButton("C");
+		
 		//Пустое  пространство
 		empty1 = new JTextField();
 		empty2 = new JTextField();
@@ -90,7 +92,7 @@ public class Calculator {
 		p1.add(empty1);
 		p1.add(empty2);
 		p1.add(empty3);
-		p1.add(empty4);
+		p1.add(buttonClear);
 		p1.add(button1);
 		p1.add(button2);
 		p1.add(button3);
@@ -124,6 +126,11 @@ public class Calculator {
 			}
 		});
 		
+		//Lambda выражение
+		buttonClear.addActionListener(e -> {
+			this.setDisplayFieldText("0");			
+		});
+		
 		//Создал фрейм
 		JFrame frame = new JFrame("Калькулятор");
 		frame.setContentPane(windowContent);
@@ -147,7 +154,6 @@ public class Calculator {
 	public static void main(String[] args) {
 		Calculator calc = new Calculator();
 	}
-
 }
 
 
