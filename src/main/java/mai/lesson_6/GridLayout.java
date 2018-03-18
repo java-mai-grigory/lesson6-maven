@@ -2,19 +2,24 @@ package mai.lesson_6;
 
 import java.awt.GridLayout;
 
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class Program  {
+public class GridLayout  {
 	
 	
 	public static void main(String args[])
 	{
 		JPanel windowContent = new JPanel();
-		GridLayout gl = new GridLayout(4, 2, 5, 5);
+		
+	//Разные простейшие компоновки	
+		//GridLayout gl = new GridLayout(4, 2, 5, 5);
+		//FlowLayout gl = new FlowLayout();                                  
+		BoxLayout gl = new BoxLayout(windowContent, BoxLayout.Y_AXIS);
 		windowContent.setLayout(gl);
 		JLabel label1 = new JLabel("Число 1:");
 		JTextField field1 = new JTextField(10);

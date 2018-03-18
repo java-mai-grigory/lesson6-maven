@@ -5,11 +5,14 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
 
 public class Calculator {
 	// Объявляю элементы управления
@@ -107,14 +110,39 @@ public class Calculator {
 		// Добавил панель, где размещаю кнопки в центр
 		windowContent.add("Center", p1);
 
+		//Назначаю события
+		MyListener listener = new MyListener(this);
+		button1.addActionListener(listener);
+		button2.addActionListener(listener);
+		
+		buttonPoint.addActionListener( new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String text = getDisplayFieldText(); 
+				setDisplayFieldText(text + 0);
+			}
+		});
+		
 		//Создал фрейм
 		JFrame frame = new JFrame("Калькулятор");
 		frame.setContentPane(windowContent);
 		// Автоподбор размера в соответствии с контентом
 		frame.pack();
 		// Отобразил главное окно
+		frame.setBounds(100, 100, 300, 400);
 		frame.setVisible(true);
+		
 	}
+	
+	public String getDisplayFieldText() {
+		return displayField.getText();
+	}
+
+	public void setDisplayFieldText(String text) {
+		this.displayField.setText(text);
+	}
+	
 
 	public static void main(String[] args) {
 		Calculator calc = new Calculator();
